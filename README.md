@@ -11,3 +11,8 @@ On the Home page, I designed a friendly and easy-to-use interface, allowing user
 
 
 💻 LOGIN/REGISTER
+
+Sistema de Login y Registro, garantizando la seguridad y personalización de la experiencia para cada usuario.
+
+![login](https://github.com/user-attachments/assets/f8bd6853-3a44-432a-b576-7b739f7433f6)    ![register](https://github.com/user-attachments/assets/2577db8a-be26-4a92-871c-541bcb9e5004)
+
