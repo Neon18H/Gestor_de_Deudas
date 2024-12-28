@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Mis Deudas</h1>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Fecha de Creación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr {% if task.important %}class="table-warning" {% endif %}>
+                <td>{{ task.id }}</td>
+                <td>
+                    {% if task.important %}
+                    <strong class="text-danger">{{ task.title }}</strong>
+                    {% else %}
+                    {{ task.title }}
+                    {% endif %}
+                </td>
+                <td>{{ task.description|truncatewords:10 }}</td>
+                <td>{{ task.datecompleted|date:"M j, Y" }}</td>
+                <td>
+                    <a href=" " class="btn btn-info btn-sm">None</a>
+                    <a href="{% url 'enviar_pregunta' %}" class="btn btn-info btn-sm">Pregunta</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

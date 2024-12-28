@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center min-vh-100" style="background: linear-gradient(to right, #0066cc, #003366);">
+    <div class="registro-form shadow-lg p-4 rounded" style="width: 100%; max-width: 420px; background-color: #ffffff;">
+        <h3 class="registro-header text-center" style="color: #007bff;">Hola, Bienvenido a tu <span style="color: #003366; font-weight: bold;">Gestor Confiable</span></h3>
+
+        <form action="/signup/" method="POST">
+            {% csrf_token %}
+
+            <!-- Campo de Usuario -->
+            <div class="mb-3">
+                <label for="id_username" class="form-label">Usuario</label>
+                {{ form.username }}
+                <!-- Mostrar errores para el campo de usuario -->
+                {% if form.username.errors %}
+                    <div class="text-danger">
+                        {% for error in form.username.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Campo de Contraseña -->
+            <div class="mb-3">
+                <label for="id_password1" class="form-label">Contraseña</label>
+                {{ form.password1 }}
+                <!-- Mostrar errores para el campo de contraseña -->
+                {% if form.password1.errors %}
+                    <div class="text-danger">
+                        {% for error in form.password1.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Campo de Confirmación de Contraseña -->
+            <div class="mb-3">
+                <label for="id_password2" class="form-label">Confirmar Contraseña</label>
+                {{ form.password2 }}
+                <!-- Mostrar errores para el campo de confirmación de contraseña -->
+                {% if form.password2.errors %}
+                    <div class="text-danger">
+                        {% for error in form.password2.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Mostrar errores generales (si existen) -->
+            {% if error %}
+                <div class="text-danger mb-3">
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+
+            <!-- Botón de Enviar -->
+            <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+        </form>
+
+        <p class="footer text-center mt-3 text-muted">Gracias por confiar en nosotros.</p>
+    </div>
+</div>
+{% endblock %}

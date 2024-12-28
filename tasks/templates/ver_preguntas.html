@@ -1,0 +1,40 @@
+<!-- templates/ver_preguntas.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Enviadas</title>
+</head>
+<body>
+    <h2>Preguntas Enviadas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Usuario</th>
+                <th>Fecha</th>
+                <th>Respondida</th>
+                <th>Respuesta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pregunta in preguntas %}
+            <tr>
+                <td>{{ pregunta.titulo }}</td>
+                <td>{{ pregunta.usuario.username }}</td>
+                <td>{{ pregunta.fecha_creacion }}</td>
+                <td>
+                    {% if pregunta.respondida %}
+                        Sí
+                    {% else %}
+                        No
+                    {% endif %}
+                </td>
+                <td>{{ pregunta.respuesta }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

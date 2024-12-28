@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid my-5">
+    <!-- Hero Section -->
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-8 col-12 text-center">
+            <div class="hero-section p-5 rounded-lg shadow-lg text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                <h1 class="display-4 font-weight-bold mb-4 animate__animated animate__fadeIn">¡Bienvenido, {{ request.user.username }}!</h1>
+                <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">Gestiona tus deudas de forma eficiente y mantén el control total de tus finanzas.</p>
+                <p class="h5 mb-4 animate__animated animate__fadeIn animate__delay-2s">Nuestra plataforma te ofrece herramientas innovadoras para mejorar tu situación financiera.</p>
+                <a href="#features" class="btn btn-light btn-lg px-4 py-3 rounded-pill shadow-lg mt-4 hover-shadow animate__animated animate__fadeIn animate__delay-3s">Comienza Ahora</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row justify-content-center mt-5" id="features">
+        <div class="col-12 text-center">
+            <h2 class="h2 font-weight-bold text-white">Características Destacadas</h2>
+            <p class="h5 text-white mb-5">Explora herramientas avanzadas que transformarán la forma en que gestionas tus finanzas.</p>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="col-lg-10">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card feature-card shadow-lg border-0 rounded-lg">
+                        <div class="card-body text-center p-5">
+                            <i class="fas fa-chart-line fa-4x mb-4"></i>
+                            <h5 class="card-title">Monitorea tu Progreso</h5>
+                            <p class="card-text">Visualiza tu progreso en tiempo real y toma decisiones más inteligentes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card feature-card shadow-lg border-0 rounded-lg">
+                        <div class="card-body text-center p-5">
+                            <i class="fas fa-calendar-alt fa-4x mb-4"></i>
+                            <h5 class="card-title">Fechas de Vencimiento</h5>
+                            <p class="card-text">Recibe alertas inteligentes para nunca olvidarte de tus pagos importantes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card feature-card shadow-lg border-0 rounded-lg">
+                        <div class="card-body text-center p-5">
+                            <i class="fas fa-hand-holding-usd fa-4x mb-4"></i>
+                            <h5 class="card-title">Pagos Programados</h5>
+                            <p class="card-text">Configura pagos automáticos y mantén todo bajo control sin complicaciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

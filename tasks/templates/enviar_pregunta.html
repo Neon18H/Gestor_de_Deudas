@@ -1,0 +1,21 @@
+<!-- templates/enviar_pregunta.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Pregunta</title>
+</head>
+<body>
+    <h2>Enviar una pregunta al Superusuario</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar Pregunta</button>
+    </form>
+</body>
+</html>
+{% endblock %}

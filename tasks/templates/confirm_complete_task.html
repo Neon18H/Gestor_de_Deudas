@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>¿Estás seguro de que quieres marcar la tarea "{{ task.title }}" como completada?</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Completar</button>
+        <a href="{% url 'assign_task_to_user' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

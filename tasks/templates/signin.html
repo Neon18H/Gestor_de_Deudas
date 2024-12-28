@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+  <div class="login-container d-flex justify-content-center align-items-center min-vh-100" style="background: linear-gradient(to right, #0066cc, #003366);">
+    <div class="login-form p-4 w-100" style="max-width: 420px; background-color: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+      <h3 class="login-header text-center mb-4" style="font-size: 1.5rem; color: #007bff;">
+        Bienvenido de nuevo a tu <span style="color: #003366; font-weight: bold;">Gestor de Deudas</span>
+      </h3>
+
+      <form action="/signin/" method="POST">
+        {% csrf_token %}
+        
+        <!-- Campo de Usuario -->
+        <div class="mb-3">
+          <label for="{{ form.username.id_for_label }}" class="form-label" style="font-weight: bold; color: #333;">Usuario</label>
+          {{ form.username|add_class:"form-control" }}
+        </div>
+
+        <!-- Campo de Contraseña -->
+        <div class="mb-3">
+          <label for="{{ form.password.id_for_label }}" class="form-label" style="font-weight: bold; color: #333;">Contraseña</label>
+          {{ form.password|add_class:"form-control" }}
+        </div>
+
+        <!-- Mensaje de error si existe -->
+        {% if error %}
+          <p class="text-danger">{{ error }}</p>
+        {% endif %}
+
+        <!-- Botón de inicio de sesión -->
+        <button type="submit" class="btn btn-primary w-100" style="background-color: #007bff; border-color: #007bff; font-weight: bold;">Iniciar Sesión</button>
+      </form>
+
+      <!-- Enlace de registro -->
+      <p class="footer text-center mt-3" style="font-size: 0.875rem; color: #6c757d;">
+        ¿No tienes cuenta? <a href="{% url 'signup' %}" style="color: #007bff;">Regístrate aquí</a>.
+      </p>
+
+      <!-- Mensaje de agradecimiento -->
+      <p class="thanks-message text-center mt-4" style="font-size: 1rem; color: #007bff; font-weight: bold;">
+        Gracias por confiar en nosotros.
+      </p>
+    </div>
+  </div>
+{% endblock %}
+

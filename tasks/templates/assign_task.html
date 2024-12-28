@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Asignar Deudas a Usuarios</h1>
+
+    {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error:</strong> {{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    <form method="POST" class="card p-4 shadow-sm">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="user_id" class="form-label">Seleccionar Usuario</label>
+            <select class="form-select" name="user_id" id="user_id" required>
+                <option value="" selected>Seleccione un usuario</option>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            {{ form.as_p }}
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <button type="submit" class="btn btn-primary">Asignar Deuda</button>
+            <a href="{% url 'tasks' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+
+    <h2 class="mt-5">Deudas Asignadas</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Tarea</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.user.username }}</td>
+                    <td>{{ task.title }}</td>
+                    <td class="{% if task.datecompleted %}text-success{% else %}text-warning{% endif %}">
+                        {% if task.datecompleted %}
+                            Completada
+                        {% else %}
+                            Pendiente
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if not task.datecompleted %}
+                            <!-- Botón para completar tarea -->
+                            <a href="{% url 'complete_task' task.id %}" class="btn btn-success btn-sm">Completar</a>
+                        {% endif %}
+                        <!-- Botón para eliminar tarea -->
+                        <a href="{% url 'delete_task' task.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url 'task_detail' task.id %}" class="btn btn-warning btn-sm">Actualizar</a>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
