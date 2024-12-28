@@ -16,3 +16,13 @@ Sistema de Login y Registro, garantizando la seguridad y personalización de la 
 
 ![login](https://github.com/user-attachments/assets/f8bd6853-3a44-432a-b576-7b739f7433f6)    ![register](https://github.com/user-attachments/assets/2577db8a-be26-4a92-871c-541bcb9e5004)
 
+💻 ASSIGN DEBT
+
+The Django Super User has exclusive privileges to:
+- Assign new debts to registered users.
+- Update, complete, or delete existing debts.
+- Regular users can view and manage their own assigned debts.
+![acc](https://github.com/user-attachments/assets/8e96d600-7315-4aae-8043-d76cbc9eeae6)
+
+![asg](https://github.com/user-attachments/assets/f794ef14-d5e2-4f27-b5a1-68154b76e8be) 
+
