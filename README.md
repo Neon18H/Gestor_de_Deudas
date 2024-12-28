@@ -1,4 +1,4 @@
-#Debt_Manager
+# Debt_Manager
 💻 Debt Manager Development
 
 I implemented a web application to manage debts using Django as the main framework, along with HTML, CSS and Bootstrap to create a modern and responsive interface. The solution allows for efficient and visual management of financial records, improving organization and accessibility for users.
